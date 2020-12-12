@@ -1,15 +1,51 @@
 
-                    
-                    
-            
-                    let rock = document.getElementById('rockButton');
-                    let paper = document.getElementById('paperButton');
-                    let scissors = document.getElementById('scissorsButton');
-                   
-                    rock.addEventListener('click', playRound);
-                    paper.addEventListener('click', playRound);
-                    scissors.addEventListener('click',playRound);
-                    
+
+
+                    let buttons = document.querySelectorAll("button");
+                    let playerScore = document.getElementById('playerScore');
+                    let computerScore = document.getElementById("computerScore");
+                    let blinking = document.getElementsByClassName("blinking");
+                    let result;
+                    let computerSelection;
+                  
+
+
+function game() {
+    let pS = 0;
+    let cS = 0;
+    
+        buttons.forEach((button) => {
+            button.addEventListener('click', () => {
+                for (let i = 1; i <= 5; i++) {
+                let playerSelection = button.value;
+                playRound(playerSelection, computerSelection);
+                if (result.includes("You win")) {
+                    pS++;
+                    playerScore.innerText = pS;
+
+                } if (result.includes("You lost")) {
+                    cS++;
+                    computerScore.innerText = cS;
+
+                } else {
+                    //display its a tie
+                    blinking.innerText = "It's a tie!";
+                    pS++;
+                    playerScore.innerText = pS;
+                    cS++;
+                    computerScore.innerText = cS;
+                }
+            };
+        }
+        );
+    })
+    if(pS > cS){
+        blinking.innerText = "You win!";
+    }else{
+        blinking.innerText = 'You lost, try again!';
+    }
+}                                          
+                      
 
 
                 function computerPlay(){
@@ -30,16 +66,7 @@
                 function playRound(playerSelection, computerSelection){
                     let gameOn = true;
                     while(gameOn){
-                        if(rock.onclick){
-                            playerSelection = "rock";
-                        }if(paper.onclick){
-                            playerSelection = "paper"
-                        }else{
-                            playerSelection = "scissors"
-                        }
-                    
-                            computerSelection = computerPlay();
-                            
+                        computerSelection = computerPlay();   
                 if(playerSelection == "rock" && computerSelection =="paper"){
                     return result = "You lost Paper beats rock!";
                 }if(playerSelection == "paper" && computerSelection == "rock"){
@@ -62,30 +89,8 @@
     }
     
 }
-/*
-        function game(){
-            let playerScore = 0;
-             let compScore= 0;  
-            for(let i = 1; i <=5 ; i++){
-                playRound();
-                if (result.includes("win")){
-                    playerScore++;
-                    
-                }else{
-                    compScore++;
-                }  
-                console.log(playerScore + " : " + compScore);
-            }                                                                   
-            
-            if (playerScore > compScore){
-                console.log ("You're the winner");
-                }else{
-                    console.log("You lost, try again");
-                } 
 
-        }
 
-    */
         
 
 
