@@ -5,6 +5,7 @@
             <link rel="stylesheet" href= "assets/rps.css">
         </head>
         <h1>Rock Paper Scissors</h1>
+        <h2>Play to 5</h2>
 
         <div class="text">
             <div>You: <span id="playerScore">0</span></div>
@@ -13,9 +14,9 @@
         <div class = "main">
         <div class="contentHolder">
         <div id = "player">
-        <span id="rock" class='btn' type="submit"><img src="https://cdn0.iconfinder.com/data/icons/rock-paper-scissors-emoji/792/rock-paper-scissors-emoji-cartoon-026-512.png"></span>
-        <span id="paper" class='btn' type="submit"><img src="assets/unnamed.png"></span>
-        <span id="scissors" class='btn' type="submit"><img src="https://www.pinclipart.com/picdir/big/4-40775_jaguar-pre-style-ergo-scissor-clip-art-purple.png"></span>
+        <span  class='btn' type="submit"><img src="https://cdn0.iconfinder.com/data/icons/rock-paper-scissors-emoji/792/rock-paper-scissors-emoji-cartoon-026-512.png"></span>
+        <span  class='btn' type="submit"><img src="assets/unnamed.png"></span>
+        <span  class='btn' type="submit"><img src="https://www.pinclipart.com/picdir/big/4-40775_jaguar-pre-style-ergo-scissor-clip-art-purple.png"></span>
         
         </div>
         
@@ -31,15 +32,18 @@
         
         <h3 class="blinking">Choose wisely:</h3>
         
-    
-        
        
 
         <div id="buttonHolder">
-            <button type="submit" id="rockButton">Rock</button>
-            <button type="submit" id="paperButton">Paper</button>
-            <button type="submit" id="scissorsButton">Scissors</button>
+            <button type="submit" id="rock" >Rock</button>
+            <button type="submit" id="paper">Paper</button>
+            <button type="submit" id="scissors">Scissors</button>
         </div>
+        
+
+        <div id="results"><span id="roundResult"> Who wins..?</span></div>
+        
+    
         </div>
         <script type="text/javascript" src="rps.js"></script>
     </body>
