@@ -1,7 +1,7 @@
 
 
 
-                    let buttons = document.querySelectorAll("button");
+                    let buttons = document.querySelectorAll(".choice");
                     let playerScore = document.getElementById('playerScore');
                     let computerScore = document.getElementById("computerScore");
                     let h3 = document.querySelector("h3");
@@ -10,6 +10,10 @@
                     let pS=0;
                     let cS=0;
                     let roundResult= document.getElementById("roundResult");
+                    let resetButton= document.getElementById("reset");
+                    let r=document.getElementById("r");
+                    let p=document.getElementById("p");
+                    let s=document.getElementById("s");
 
                     
                   
@@ -36,44 +40,55 @@ buttons.forEach((button) => {
     }else{
         pS++;
         cS++;
-        roundResult.textContent="It's a tie!"
         playerScore.textContent = pS;
         computerScore.textContent = cS;
         
-    }//SMTH HERE
-     if(pS && cS < 5){
-         roundResult.textContent="Who wins..?"
-        h3.textContent = "Choose wisely!";
-    }else{
-        
+    }
+     if(pS ==5 || cS == 5){
         checkWinner();
         h3.textContent = "Game over!";
-    
+        buttons.forEach((button)=>{
+            button.disabled=true;
+        });
+        
+     }
+    else{
+           h3.textContent = "Choose wisely!";
+       
     }
 })
     
 });
+resetGame();
 
 
-                    // Function to animate the computer pick
+                    
                    
                 function playRound(playerSelection, computerSelection){
     
                         computerSelection = computerPlay();   
                 if(playerSelection == "rock" && computerSelection =="paper"){
+                    p.classList.add("animation");
                     return result = "You lost Paper beats rock!";
                 }if(playerSelection == "paper" && computerSelection == "rock"){
+                    r.classList.add("animation");
                     return result = "You win Paper beats rock";
                 }if(playerSelection == "scissors" && computerSelection == "rock"){
+                    r.classList.add("animation");
                     return result = "You lost Rock beats scissors!"
                 }if( playerSelection =="rock" && computerSelection == "scissors"){
+                    s.classList.add("animation");
                     return result = "You win Rock beats scissors!"
             }if(playerSelection == "scissors" && computerSelection == "paper"){
+                p.classList.add("animation");
               return result =  "You win Scissors beats paper!"
             }if(playerSelection =="paper" && computerSelection =="scissors"){
+                s.classList.add("animation");
                 return result = "You lost Scissors beats paper!"
             }
         if(playerSelection == computerSelection){
+            
+            roundResult.textContent="It's a tie!"
            return result = "It's a tie";
           
         }
@@ -87,7 +102,7 @@ buttons.forEach((button) => {
  function checkWinner(){
     if(pS == cS){
         roundResult.textContent="It's a tie!";
-        roundResult.style.color = "Yellow";
+        roundResult.style.color = "green";
     }else if(pS==5){
         roundResult.textContent="You're a winner";
         roundResult.style.color="red";
@@ -114,9 +129,11 @@ function computerPlay(){
         
     }
    
-//reset
 
-
+function resetGame(){
+    resetButton.addEventListener("click",()=>
+    location.reload());
+    }
 
 
 
