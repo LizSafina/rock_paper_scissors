@@ -141,7 +141,5 @@ button:hover{
 
 
 .animation{
-    transform: rotate(360deg);
-    transition: width 2s, height 2s, transform 2s;
-
+    transform: scale(1);
 }

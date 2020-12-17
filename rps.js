@@ -5,6 +5,7 @@
                     let playerScore = document.getElementById('playerScore');
                     let computerScore = document.getElementById("computerScore");
                     let h3 = document.querySelector("h3");
+                    let h2 =document.querySelector("h2");
                     let computerSelection;
                     let result;
                     let pS=0;
@@ -68,26 +69,26 @@ resetGame();
     
                         computerSelection = computerPlay();   
                 if(playerSelection == "rock" && computerSelection =="paper"){
-                    p.classList.add("animation");
+                    h2.textContent="Computer's choice : PAPER!"
                     return result = "You lost Paper beats rock!";
                 }if(playerSelection == "paper" && computerSelection == "rock"){
-                    r.classList.add("animation");
+                    h2.textContent="Computer's choice : ROCK!"
                     return result = "You win Paper beats rock";
                 }if(playerSelection == "scissors" && computerSelection == "rock"){
-                    r.classList.add("animation");
+                    h2.textContent="Computer's choice : ROCK!"
                     return result = "You lost Rock beats scissors!"
                 }if( playerSelection =="rock" && computerSelection == "scissors"){
-                    s.classList.add("animation");
+                    h2.textContent="Computer's choice : SCISSORS!"
                     return result = "You win Rock beats scissors!"
             }if(playerSelection == "scissors" && computerSelection == "paper"){
-                p.classList.add("animation");
+                h2.textContent="Computer's choice : PAPER!"
               return result =  "You win Scissors beats paper!"
             }if(playerSelection =="paper" && computerSelection =="scissors"){
-                s.classList.add("animation");
+                h2.textContent="Computer's choice : SCISSORS!"
                 return result = "You lost Scissors beats paper!"
             }
         if(playerSelection == computerSelection){
-            
+            h2.textContent="It's a tie!"
             roundResult.textContent="It's a tie!"
            return result = "It's a tie";
           
